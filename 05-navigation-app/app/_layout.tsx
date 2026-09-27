@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-
 import { Slot, SplashScreen } from "expo-router";
+import React, { useEffect } from "react";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 import { useFonts } from "expo-font";
 
@@ -24,8 +24,14 @@ const RootLayout = () => {
   if (!fontsLoaded && !error) return null;
 
   // Si ya tengo las fuentes o si hay un error entonces muestro el contenido de la app
-  return <Slot />;
+  //return <Slot />;
   //return <Stack />;
+
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Slot />
+    </GestureHandlerRootView>
+  );
 };
 
 export default RootLayout;

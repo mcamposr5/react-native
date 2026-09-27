@@ -6,8 +6,25 @@ const TabsLayout = () => {
   return (
     // Crear los tabs que serviran para navegar entre las diferentes pantallas de la aplicación.
     // Para esto, vamos a utilizar el componente Tabs de Expo Router, que nos permite crear una navegación por pestañas de manera sencilla.
-    <Tabs screenOptions={{ tabBarActiveTintColor: "purple" }}>
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: "indigo",
+        headerShown: false,
+        tabBarStyle: {
+          backgroundColor: "white",
+        },
+      }}
+    >
       {/* Cada tab se define como un componente hijo de Tabs, y su nombre se corresponde con la ruta que queremos que tenga ese tab. */}
+      <Tabs.Screen
+        name="(stack)"
+        options={{
+          title: "Stack",
+          tabBarIcon: ({ color }) => (
+            <Ionicons size={28} name="person-outline" color={color} />
+          ),
+        }}
+      />
       <Tabs.Screen
         name="home/index"
         options={{
